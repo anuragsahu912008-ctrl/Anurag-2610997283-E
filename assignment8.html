@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie Hub | Interactive Restaurant Menu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fffaf3;
+            color: #292524;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background: #211b18;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffb347;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffb347;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 65px 20px 45px;
+            background: linear-gradient(135deg, #fff0d9, #ffe0bd);
+        }
+
+        .hero .tagline {
+            color: #c65d19;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin: 12px 0;
+            color: #2c211b;
+        }
+
+        .hero h1 span {
+            color: #d35424;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #65564d;
+            font-size: 17px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #d35424;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            margin-top: 22px;
+            font-weight: 600;
+        }
+
+        /* Main Section */
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            color: #2c211b;
+        }
+
+        .section-heading p {
+            color: #76675d;
+            margin-top: 8px;
+        }
+
+        /* Interactive Image */
+        .image-container {
+            max-width: 950px;
+            margin: 30px auto;
+            background: white;
+            padding: 14px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(75, 43, 20, 0.12);
+        }
+
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .image-caption {
+            text-align: center;
+            padding: 16px 8px 5px;
+            color: #8a4b2b;
+            font-weight: 600;
+        }
+
+        /* Food Cards */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 22px;
+            margin-top: 40px;
+        }
+
+        .food-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #f2e2d4;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(75, 43, 20, 0.10);
+        }
+
+        .food-icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .food-card h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .food-card p {
+            color: #78685e;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .food-card a {
+            display: inline-block;
+            color: #c64c20;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .food-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Instructions */
+        .instructions {
+            margin-top: 50px;
+            padding: 28px;
+            background: #fff0df;
+            border-left: 5px solid #d35424;
+            border-radius: 10px;
+        }
+
+        .instructions h3 {
+            margin-bottom: 10px;
+            color: #8e391b;
+        }
+
+        .instructions ul {
+            padding-left: 22px;
+        }
+
+        .instructions li {
+            margin: 6px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background: #211b18;
+            color: #eee0d5;
+            padding: 28px 15px;
+        }
+
+        footer strong {
+            color: #ffb347;
+        }
+
+        footer p + p {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .section-heading h2 {
+                font-size: 26px;
+            }
+
+            main {
+                padding: 35px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">🍽️ Foodie Hub</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Interactive Menu</a>
+            <a href="#specials">Food Specials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <p class="tagline">Good Food, Great Moments</p>
+
+        <h1>Discover Our <span>Delicious Menu</span></h1>
+
+        <p>
+            Welcome to Foodie Hub! Explore a world of delicious flavours.
+            Click different food items in our interactive food picture
+            to discover more about your favourite dishes.
+        </p>
+
+        <div class="badge">Fresh Ingredients • Amazing Taste</div>
+    </section>
+
+    <main>
+
+        <!-- Interactive Image Map -->
+        <section id="menu">
+
+            <div class="section-heading">
+                <h2>Explore Our Interactive Menu</h2>
+                <p>
+                    Click on the food items in the picture to explore them.
+                </p>
+            </div>
+
+            <div class="image-container">
+
+                <!--
+                    The image is displayed at its natural aspect ratio.
+                    Image-map coordinates below assume a 1000 x 650 image.
+                -->
+
+                <img
+                    src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&amp;fit=crop&amp;w=1000&amp;h=650"
+                    alt="A delicious spread of restaurant food"
+                    usemap="#restaurantmap"
+                    id="foodImage"
+                >
+
+                <map name="restaurantmap" id="restaurantmap">
+
+                    <!-- 1. Pizza: Circle -->
+                    <area
+                        shape="circle"
+                        coords="500,390,100"
+                        href="https://en.wikipedia.org/wiki/Pizza"
+                        alt="Pizza - Discover pizza ingredients and history"
+                        title="Explore Pizza"
+                        target="_blank"
+                    >
+
+                    <!-- 2. Burger: Circle -->
+                    <area
+                        shape="circle"
+                        coords="790,170,75"
+                        href="https://en.wikipedia.org/wiki/Hamburger"
+                        alt="Burger - Discover hamburger ingredients and history"
+                        title="Explore Burger"
+                        target="_blank"
+                    >
+
+                    <!-- 3. French Fries: Rectangle -->
+                    <area
+                        shape="rect"
+                        coords="590,250,750,350"
+                        href="https://en.wikipedia.org/wiki/French_fries"
+                        alt="French Fries - Learn about crispy potato fries"
+                        title="Explore French Fries"
+                        target="_blank"
+                    >
+
+                    <!-- 4. Menu Card: Rectangle -->
+                    <area
+                        shape="rect"
+                        coords="10,10,200,110"
+                        href="#specials"
+                        alt="Menu Card - View our featured food specials"
+                        title="View Menu Specials"
+                    >
+
+                    <!-- 5. Sandwich: Polygon -->
+                    <area
+                        shape="poly"
+                        coords="50,150,180,125,240,210,110,260"
+                        href="https://en.wikipedia.org/wiki/Sandwich"
+                        alt="Sandwich - Discover different sandwich varieties"
+                        title="Explore Sandwich"
+                        target="_blank"
+                    >
+
+                    <!-- 6. Cake Slice: Polygon -->
+                    <area
+                        shape="poly"
+                        coords="690,420,820,400,880,490,750,520"
+                        href="https://en.wikipedia.org/wiki/Cake"
+                        alt="Cake Slice - Discover cakes and their varieties"
+                        title="Explore Cake"
+                        target="_blank"
+                    >
+
+                    <!-- 7. Default: Remaining Image Area -->
+                    <area
+                        shape="default"
+                        href="https://en.wikipedia.org/wiki/Restaurant"
+                        alt="Other food items - Learn about restaurants"
+                        title="Discover More About Restaurants"
+                        target="_blank"
+                    >
+
+                </map>
+
+                <p class="image-caption">
+                    ✨ Click the picture to discover something delicious!
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Food Specials -->
+        <section id="specials">
+
+            <div class="section-heading">
+                <h2>Our Popular Food Items</h2>
+                <p>A little taste of happiness in every bite.</p>
+            </div>
+
+            <div class="food-grid">
+
+                <article class="food-card">
+                    <div class="food-icon">🍕</div>
+                    <h3>Pizza</h3>
+                    <p>Cheesy, delicious and loaded with flavour.</p>
+                    <a href="https://en.wikipedia.org/wiki/Pizza"
+                       target="_blank">Explore Pizza ↗️</a>
+                </article>
+
+                <article class="food-card">
+                    <div class="food-icon">🍔</div>
+                    <h3>Burger</h3>
+                    <p>A mouth-watering combination of buns and fillings.</p>
+                    <a href="https://en.wikipedia.org/wiki/Hamburger"
+                       target="_blank">Explore Burger ↗️</a>
+                </article>
+
+                <article class="food-card">
+                    <div class="food-icon">🍟</div>
+                    <h3>French Fries</h3>
+                    <p>Crispy golden potatoes loved by everyone.</p>
+                    <a href="https://en.wikipedia.org/wiki/French_fries"
+                       target="_blank">Explore Fries ↗️</a>
+                </article>
+
+                <article class="food-card">
+                    <div class="food-icon">🥪</div>
+                    <h3>Sandwich</h3>
+                    <p>A tasty combination of bread and fresh fillings.</p>
+                    <a href="https://en.wikipedia.org/wiki/Sandwich"
+                       target="_blank">Explore Sandwich ↗️</a>
+                </article>
+
+                <article class="food-card">
+                    <div class="food-icon">🍰</div>
+                    <h3>Cake Slice</h3>
+                    <p>A sweet treat for your happiest moments.</p>
+                    <a href="https://en.wikipedia.org/wiki/Cake"
+                       target="_blank">Explore Cake ↗️</a>
+                </article>
+
+                <article class="food-card">
+                    <div class="food-icon">📋</div>
+                    <h3>Menu Card</h3>
+                    <p>Explore our featured dishes and food selections.</p>
+                    <a href="#menu">View Menu ↗️</a>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Assignment Information -->
+        <section class="instructions">
+
+            <h3>📌 How to Use the Interactive Menu</h3>
+
+            <ul>
+                <li>Click the pizza area to learn about pizza.</li>
+                <li>Click the burger area to learn about burgers.</li>
+                <li>Click the French fries area to discover more.</li>
+                <li>Click the menu card area to view food specials.</li>
+                <li>Click the sandwich or cake area to explore them.</li>
+                <li>Click another part of the image to learn about restaurants.</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Made with ❤️ by <strong>Anurag Sahu</strong></p>
+        <p>Interactive Restaurant Menu | HTML Image Map Assignment</p>
+        <p>© 2026 Foodie Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- Keep image-map coordinates responsive -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js">
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            if (typeof imageMapResize === "function") {
+                imageMapResize();
+            }
+        });
+    </script>
+
+</body>
+</html>

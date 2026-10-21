@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map Explorer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #e8eaf6);
+            color: #243447;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #09203f, #537895);
+            color: white;
+            padding: 35px 15px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+        }
+
+        .map-card {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #00000018;
+        }
+
+        .map-card h2 {
+            color: #123c69;
+            margin-bottom: 12px;
+        }
+
+        .map-card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .world-map {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .instructions {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 15px;
+        }
+
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #00000010;
+        }
+
+        .info h3 {
+            color: #176b87;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #09203f;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #80deea;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌍 World Map Explorer</h1>
+        <p>Discover the world with interactive HTML image maps!</p>
+        <p>Click a highlighted region on the map to explore a country.</p>
+    </header>
+
+    <main>
+        <section class="map-card">
+            <h2>Explore Our World</h2>
+            <p>
+                Select a region to visit an external information page.
+                The map demonstrates circle, rectangle, polygon and default areas.
+            </p>
+
+            <!-- Interactive world map -->
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg"
+                alt="World map with clickable regions for different countries"
+                usemap="#worldmap"
+                class="world-map"
+                id="worldImage"
+            >
+
+            <map name="worldmap" id="worldmap">
+
+                <!-- Circle: approximate region around India -->
+                <area
+                    shape="circle"
+                    coords="670,300,35"
+                    href="https://en.wikipedia.org/wiki/India"
+                    alt="India - circular region"
+                    title="Explore India"
+                    target="_blank"
+                >
+
+                <!-- Rectangle: approximate region around Australia -->
+                <area
+                    shape="rect"
+                    coords="750,390,870,470"
+                    href="https://en.wikipedia.org/wiki/Australia"
+                    alt="Australia - rectangular region"
+                    title="Explore Australia"
+                    target="_blank"
+                >
+
+                <!-- Polygon: approximate region around Japan -->
+                <area
+                    shape="poly"
+                    coords="835,190,860,205,870,235,850,255,835,230"
+                    href="https://en.wikipedia.org/wiki/Japan"
+                    alt="Japan - polygon-shaped region"
+                    title="Explore Japan"
+                    target="_blank"
+                >
+
+                <!-- Default: any other part of the map -->
+                <area
+                    shape="default"
+                    href="https://www.britannica.com/place/world"
+                    alt="Other regions of the world"
+                    title="Explore the world"
+                    target="_blank"
+                >
+
+            </map>
+        </section>
+
+        <section class="instructions">
+            <div class="info">
+                <h3>⭕ Circle</h3>
+                <p>
+                    The circle area represents India.
+                    Its coordinates define the center and radius.
+                </p>
+            </div>
+
+            <div class="info">
+                <h3>▭ Rectangle</h3>
+                <p>
+                    The rectangle area represents Australia.
+                    Its coordinates define two opposite corners.
+                </p>
+            </div>
+
+            <div class="info">
+                <h3>⬡ Polygon</h3>
+                <p>
+                    The polygon area represents Japan.
+                    Its coordinates define multiple boundary points.
+                </p>
+            </div>
+
+            <div class="info">
+                <h3>🌐 Default Area</h3>
+                <p>
+                    The default area covers any part of the image
+                    not covered by another defined area.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>World Map Explorer | HTML Image Maps &amp; Hyperlinks</p>
+        <p>Created for Web Development Assignment</p>
+    </footer>
+
+</body>
+</html>

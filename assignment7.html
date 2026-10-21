@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: white;
+            line-height: 1.7;
+
+            /* College campus background */
+            background:
+                linear-gradient(
+                    rgba(8, 20, 40, 0.78),
+                    rgba(8, 20, 40, 0.88)
+                ),
+                url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=85")
+                center/cover fixed;
+        }
+
+        header {
+            text-align: center;
+            padding: 65px 20px;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 100, 180, 0.95),
+                rgba(80, 40, 150, 0.88)
+            );
+            border-bottom: 4px solid #ffd166;
+        }
+
+        header h1 {
+            font-size: clamp(36px, 5vw, 55px);
+            color: #fff2cc;
+            text-shadow: 2px 3px 8px #111;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        nav {
+            background: #07172b;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #ffd166;
+            color: #07172b;
+        }
+
+        main {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        section {
+            background: rgba(10, 25, 48, 0.91);
+            border: 1px solid rgba(255, 209, 102, 0.55);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            scroll-margin-top: 85px;
+        }
+
+        h2 {
+            color: #ffd166;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #ffe3a1;
+            margin: 12px 0 6px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .college-list {
+            padding-left: 30px;
+            font-size: 17px;
+        }
+
+        .college-list li {
+            margin: 8px 0;
+        }
+
+        .college-list ul {
+            padding-left: 28px;
+            color: #d9eaff;
+        }
+
+        .college-list ol {
+            padding-left: 28px;
+        }
+
+        .facilities dt {
+            color: #ffd166;
+            font-size: 19px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .facilities dd {
+            margin-left: 20px;
+            color: #e2eaff;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(220px, 1fr)
+            );
+            gap: 22px;
+            margin-top: 20px;
+        }
+
+        .image-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 209, 102, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-card h3 {
+            margin: 12px 15px 5px;
+        }
+
+        .image-card p {
+            padding: 0 15px 18px;
+        }
+
+        .external-link {
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 8px 16px;
+            background: #ffd166;
+            color: #10213a;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-top:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            background: rgba(3, 12, 25, 0.96);
+            padding: 30px 15px;
+            border-top: 3px solid #ffd166;
+        }
+
+        footer h2 {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 12px;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            header {
+                padding: 45px 15px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                padding: 7px 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- Main Heading -->
+    <header>
+        <h1>🎓 My College</h1>
+        <p>Learning Today, Leading Tomorrow</p>
+        <p>Knowledge • Excellence • Innovation</p>
+    </header>
+
+    <!-- Bookmark Navigation -->
+    <nav>
+        <a href="#about">About College</a>
+        <a href="#courses">Courses</a>
+        <a href="#departments">Departments</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- Introduction -->
+        <section id="about">
+            <h2>🏫 About Our College</h2>
+
+            <p>
+                Welcome to My College, a place where knowledge,
+                creativity and innovation come together. Our college
+                provides a friendly learning environment where
+                students develop academic skills, practical knowledge
+                and confidence. Experienced teachers guide students
+                towards their goals through classroom learning,
+                projects and extracurricular activities. With modern
+                facilities, a beautiful campus and a focus on
+                all-round development, our college prepares students
+                for a successful future.
+            </p>
+
+            <h3>Our Vision</h3>
+            <p>
+                To inspire young minds, encourage innovation and
+                develop responsible, skilled and confident citizens.
+            </p>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- Courses: Unordered List -->
+        <section id="courses">
+            <h2>📚 Courses Offered</h2>
+
+            <ul class="college-list">
+                <li>Bachelor of Computer Applications (BCA)</li>
+                <li>Bachelor of Business Administration (BBA)</li>
+                <li>Bachelor of Commerce (B.Com)</li>
+                <li>Bachelor of Arts (BA)</li>
+                <li>Bachelor of Science (B.Sc)</li>
+            </ul>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- Departments: Ordered List and Nested Subjects -->
+        <section id="departments">
+            <h2>🏢 Departments and Subjects</h2>
+
+            <ol class="college-list">
+
+                <li>Computer Science Department
+                    <ul>
+                        <li>Programming in C++</li>
+                        <li>Web Development</li>
+                        <li>Database Management</li>
+                    </ul>
+                </li>
+
+                <li>Commerce Department
+                    <ul>
+                        <li>Financial Accounting</li>
+                        <li>Business Economics</li>
+                        <li>Corporate Law</li>
+                    </ul>
+                </li>
+
+                <li>Management Department
+                    <ul>
+                        <li>Principles of Management</li>
+                        <li>Marketing Management</li>
+                        <li>Human Resource Management</li>
+                    </ul>
+                </li>
+
+                <li>Arts Department
+                    <ul>
+                        <li>English Literature</li>
+                        <li>History</li>
+                        <li>Political Science</li>
+                    </ul>
+                </li>
+
+                <li>Science Department
+                    <ul>
+                        <li>Physics</li>
+                        <li>Chemistry</li>
+                        <li>Mathematics</li>
+                    </ul>
+                </li>
+
+            </ol>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- Facilities: Description List -->
+        <section id="facilities">
+            <h2>✨ College Facilities</h2>
+
+            <dl class="facilities">
+
+                <dt>📖 Library</dt>
+                <dd>
+                    A place where students can read and borrow books.
+                    It provides a peaceful environment for learning
+                    and research.
+                </dd>
+
+                <dt>🧪 Laboratory</dt>
+                <dd>
+                    A place where students perform practical work,
+                    conduct experiments and develop technical skills.
+                </dd>
+
+                <dt>🍽️ Cafeteria</dt>
+                <dd>
+                    A place where students can have food, refreshments
+                    and spend time with their friends.
+                </dd>
+
+                <dt>💻 Computer Lab</dt>
+                <dd>
+                    A modern learning space where students practise
+                    programming, computer applications and digital skills.
+                </dd>
+
+                <dt>⚽ Sports Ground</dt>
+                <dd>
+                    A space for outdoor games, physical fitness,
+                    sports competitions and teamwork.
+                </dd>
+
+            </dl>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- College Life Images -->
+        <section id="gallery">
+            <h2>📸 Life at Our College</h2>
+
+            <div class="gallery">
+
+                <div class="image-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=85"
+                        alt="Beautiful college campus building"
+                        width="800"
+                        height="500">
+                    <h3>🏫 Beautiful Campus</h3>
+                    <p>
+                        A welcoming campus that inspires students
+                        to learn, grow and achieve.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=85"
+                        alt="College students celebrating graduation"
+                        width="800"
+                        height="500">
+                    <h3>🎓 Student Life</h3>
+                    <p>
+                        Making memories, celebrating achievements
+                        and building lifelong friendships.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=85"
+                        alt="Students learning together in a classroom"
+                        width="800"
+                        height="500">
+                    <h3>📝 Classroom Learning</h3>
+                    <p>
+                        Interactive learning and guidance help
+                        students build a strong foundation.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=85"
+                        alt="Students studying and learning together"
+                        width="800"
+                        height="500">
+                    <h3>📚 Study and Research</h3>
+                    <p>
+                        Exploring ideas, sharing knowledge and
+                        discovering new opportunities.
+                    </p>
+                </div>
+
+            </div>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+        <!-- External Links and Contact -->
+        <section id="contact">
+            <h2>🌐 College Website and Contact</h2>
+
+            <p>
+                Visit an educational website to explore courses,
+                learning resources and student opportunities:
+            </p>
+
+            <p>
+                <a
+                    class="external-link"
+                    href="https://www.ugc.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    University Grants Commission (UGC) Website
+                </a>
+            </p>
+
+            <p>
+                <a
+                    class="external-link"
+                    href="https://www.education.gov.in/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Ministry of Education Website
+                </a>
+            </p>
+
+            <p>
+                Note: Replace these links with your actual college's
+                official website and contact details.
+            </p>
+
+            <h3>Contact Us</h3>
+            <p>Email: info@mycollege.example</p>
+            <p>Address: College Road, Jalandhar, India</p>
+
+            <a href="#top" class="back-top">↑ Back to Top</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <h2>🎓 My College</h2>
+        <p>Empowering Minds, Building Futures.</p>
+        <p>©️ 2026 My College | Learning Never Ends</p>
+        <a href="#top" class="back-top">↑ Back to Top</a>
+    </footer>
+
+</body>
+</html>

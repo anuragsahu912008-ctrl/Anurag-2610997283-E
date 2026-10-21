@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites</title>
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #dbeafe, #fce7f3, #ede9fe);
+            color: #334155;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 45px;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(79, 70, 229, 0.15);
+            border: 1px solid white;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .heart {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #7c3aed, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            color: #6d28d9;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ol, ul {
+            padding-left: 35px;
+        }
+
+        ol {
+            list-style-type: decimal;
+            list-style-position: outside;
+        }
+
+        ol li::marker {
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+
+        ul {
+            list-style-type: square;
+            list-style-position: outside;
+        }
+
+        ul li::marker {
+            color: #ec4899;
+        }
+
+        li {
+            padding: 10px 12px;
+            margin-bottom: 9px;
+            border-radius: 10px;
+            transition: 0.3s ease;
+        }
+
+        ol li:hover {
+            background: #f3e8ff;
+            transform: translateX(6px);
+        }
+
+        ul li:hover {
+            background: #fce7f3;
+            transform: translateX(6px);
+        }
+
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899, #f9a8d4);
+            border-radius: 5px;
+            margin: 32px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="heart">💖</div>
+            <h1>My Favorites</h1>
+            <p class="subtitle">
+                A little collection of things that make me happy!
+            </p>
+        </header>
+
+        <section>
+            <h2>✨ My Favorite Activities</h2>
+
+            <ol start="3">
+                <li>🎵 Listening to Music</li>
+                <li>📚 Reading Books</li>
+                <li>✈️ Travelling to New Places</li>
+                <li>🎨 Drawing and Painting</li>
+                <li>🏸 Playing Outdoor Games</li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🍽️ My Favorite Foods</h2>
+
+            <ul>
+                <li>🍕 Pizza</li>
+                <li>🍔 Burgers</li>
+                <li>🍝 Pasta</li>
+                <li>🍦 Ice Cream</li>
+                <li>🍰 Chocolate Cake</li>
+            </ul>
+        </section>
+
+        <div class="footer">
+            Made with 💜 and a little creativity!
+        </div>
+
+    </div>
+</body>
+</html>
